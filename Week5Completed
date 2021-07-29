@@ -1,0 +1,102 @@
+// Menu Week 5 Coding Assignment
+
+
+// addNewEvent and removeEvent
+
+// addNewEvent should tak an event and add it ot the events array ONLY if 
+// no ttitle
+
+
+
+
+class Dog {
+    constructor(name, breed) {
+        this.name = name;
+        this.breed = breed 
+    }
+
+    describe() {
+        return `${this.name} is a ${this.breed}.`;
+    }
+}
+
+class Pack {
+    constructor(name) {
+        this.name = name;
+        this.dogs = [];
+
+    }
+
+    addDog(dog) {
+        if(dog instanceof Dog) {
+            this.dogs.push(dog);
+        } else {
+            throw new Error( 'This is not a dog');
+
+     }
+ }
+    
+
+
+class Menu { 
+constructor() {
+     this.packs = [];
+     this.selectedPack = null;
+  }
+
+  start() {
+    let selection = this.showMainMenuOptions();
+    while (selection != 0) {
+        switch(selection) {
+            case '1':
+                this.createPack();
+                break;
+            case '2':
+                this.viewPack();
+                break;
+            case '3' :
+                this.deletePack();
+                break;
+            case '4':
+                this.displayPacks();
+                break;
+                default: 
+                    selection = 0;
+        }    
+        selection.this = this.showMainMenuOptions();
+  
+    }
+    alert('Goodbye!'); }
+
+
+    showMainMenuOptions() {
+        return prompt(`
+        0) exit
+        1) Create new pack
+        2) Delete Pack
+        4) Display all Packs
+        `);
+
+    }
+
+    displayPacks() {
+        let packString = '';
+        for (let i = 0; i < this.packs.length; i ++) {
+            packString += i + ')' + this.packs[i].name + '\n';
+        }
+        alert(packString);
+
+        }
+    
+    createPack() {
+        let name = prompt(`Enter name of pack`);
+        this.packs.push(new Pack(name));
+        
+    }
+
+    }
+
+
+
+}
+
